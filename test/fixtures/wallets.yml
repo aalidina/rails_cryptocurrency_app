@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  holding: 1
+  market_value: 1
+  net_cost: 1
+  coin_id: 1
+  user_id: 1
+
+two:
+  name: MyString
+  holding: 1
+  market_value: 1
+  net_cost: 1
+  coin_id: 1
+  user_id: 1
