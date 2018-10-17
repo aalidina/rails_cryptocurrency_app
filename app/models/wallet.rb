@@ -1,4 +1,4 @@
 class Wallet < ApplicationRecord
   belongs_to :user
-  has_many :coin
+  belongs_to :coin
 end

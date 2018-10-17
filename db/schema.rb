@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_03_193923) do
+ActiveRecord::Schema.define(version: 2018_10_11_215005) do
 
   create_table "coins", force: :cascade do |t|
     t.string "name"
     t.integer "price"
     t.integer "wallet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "market_places", force: :cascade do |t|
+    t.string "coin_id"
+    t.string "wallet_id"
+    t.decimal "coin_price"
+    t.decimal "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -11,9 +11,9 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       session[:id] = @user.id
-      redirect_to new_wallet_path
+      redirect_to user_path(@user)
     else
-      redirect_to '/login'
+      render login_path
     end
   end
 

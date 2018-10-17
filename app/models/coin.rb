@@ -1,3 +1,4 @@
 class Coin < ApplicationRecord
-  belongs_to :wallet
+  has_many :wallets
+  has_many :users, through: :wallets
 end

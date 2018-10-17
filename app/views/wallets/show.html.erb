@@ -1,0 +1,7 @@
+<% @wallet.each do |wallet| %>
+<% if current_user %>
+<%= link_to "Show #{wallet.name}", wallet_path(wallet) %>
+<% else %>
+  <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %><br>
+<% end %>
+<% end %>

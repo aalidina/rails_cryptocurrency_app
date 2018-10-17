@@ -1,0 +1,10 @@
+
+<a href="/logout">Log Out</a>
+
+<br><br>
+
+<%= form_for @wallet do |f| %>
+Wallet Name: <%= f.text_field :name %>
+<br><br>
+<%= f.submit "Create New Wallet" %>
+<% end %>
