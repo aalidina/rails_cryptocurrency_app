@@ -1,4 +1,4 @@
 class Coin < ApplicationRecord
   has_many :wallets
-  has_many :users, through: :wallets
+  accepts_nested_attributes_for :wallets
 end

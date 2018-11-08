@@ -5,17 +5,17 @@ class WalletsController < ApplicationController
 
   def new
     if logged_in?
-      @wallet = Wallet.new
+      @wallet = current_user.wallets.new
     else
       redirect_to login_path
     end
   end
 
   def create
-    @wallet =  current_user.wallets.new(wallet_params)
-    @wallet.save
+    @wallet =  current_user.wallets.create(wallet_params)
+    binding.pry
     if @wallet.save
-      redirect_to wallet_path(@user), notice: 'Wallet was successfully created.'
+      redirect_to wallet_path(@wallet)
     else
       render "/wallets/new"
     end
@@ -23,7 +23,7 @@ class WalletsController < ApplicationController
 
   def show
     if logged_in?
-      @wallet = Wallets.find_by(user_id: params[:user_id])
+      @wallet = current_user.wallets.find_by(id: params[:id])
     else
       redirect_to login_path
     end
@@ -38,4 +38,5 @@ class WalletsController < ApplicationController
   def wallet_params
     params.require(:wallet).permit(:name)
   end
+
 end

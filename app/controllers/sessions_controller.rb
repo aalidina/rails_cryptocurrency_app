@@ -11,8 +11,13 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
       #redirects to users/id path displays users/show erb
     else
-      redirect_to login_path
+      flash[:notice]  = 'Invalid email/password combination'
+      render 'new'
     end
+  end
+
+  def welcome
+    
   end
 
   def destroy

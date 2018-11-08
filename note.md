@@ -37,3 +37,5 @@ User
 Since sessions does not have model we cannot use @ user so that is why we provide a specific route in the signin form.
 
 Login page post the params to sessions/create based on the /login route which look for the user and makes sure that the username and password are correct.  
+
+To create a new wallet creating a coin and user was required so to do this I had to create a getter and setter method in wallet model and then use the getter method in the strong params and in new wallet erb form. We call these in-memory attributes "virtuals".
