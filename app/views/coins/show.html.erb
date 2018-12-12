@@ -1,2 +1,8 @@
 <%= @wallet.name %>
-<%= @coin.name %>
+<%@coin.wallets.each do |att| %>
+  Holding: <%= att.holding %><br>
+  Net Cost: <%= att.net_cost %><br>
+  Holding: <%= att.market_value %><br>
+<%end%>
+Coin Name: <%= @coin.name %><br>
+Coin Price: <%= @coin.price %>

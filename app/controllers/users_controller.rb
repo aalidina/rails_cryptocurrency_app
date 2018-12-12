@@ -30,6 +30,6 @@ class UsersController < ApplicationController
 
 #prevents hacker from entering different perms then then one in the app
   def user_params
-    params.require(:user).permit(:username, :email, :password, :admin)
+    params.require(:user).permit(:username, :id, :email, :password, :admin)
   end
 end

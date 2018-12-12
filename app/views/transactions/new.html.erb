@@ -1,0 +1,12 @@
+
+<%= form_for @transaction do |f| %>
+  <%= f.fields_for :coin, @coin do |coin| %><br>
+    Coin Name: <%= coin.text_field :name %><br>
+    Coin Price: <%= coin.text_field :price %><br>
+  <%end%>
+    Holding: <%= f.text_field :holding %><br>
+    Martet Value: <%= f.text_field :market_value %><br>
+    Net Cost: <%= f.text_field :net_cost %><br>
+  <br><br>
+<%= f.submit "Create New Coin" %>
+<% end %>

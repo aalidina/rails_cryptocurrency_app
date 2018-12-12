@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :coins
   resources :users
   resources :wallets
+  resources :transactions
 
   get "/signup", to: "users#new" #signup route displays users/new erb and post to
   get "/login", to: "sessions#new" # login route displays sessions/new #erb and post to login

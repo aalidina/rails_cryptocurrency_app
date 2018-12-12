@@ -4,17 +4,14 @@
 <br><br>
 
 <%= form_for @coin do |f| %>
-  <%= f.collection_check_boxes :wallet_id, current_user.wallets.all, :user_id, :name %>
-    <%= f.fields_for :wallets, @coin.wallets.build do |wallet_name| %><br>
-    Create New Wallet: <%= wallet_name.text_field :name %><br>
+  <%= f.collection_check_boxes :id, current_user.wallets.all, :id, :name %>
+  <%= f.fields_for :wallets, @wallet do |wallet| %><br>
+    Holding: <%= wallet.text_field :holding %><br>
+    Martet Value: <%= wallet.text_field :market_value %><br>
+    Net Cost: <%= wallet.text_field :net_cost %><br>
   <%end%>
-  Coin Name: <%= f.text_field :name %><br>
-  Coin Price: <%= f.text_field :price %><br>
-  <%= f.fields_for :wallets, @coin.wallets.build do |wal| %>
-    Holding: <%= wal.text_field :holding %><br>
-    Martet Value: <%= wal.text_field :market_value %><br>
-    Net Cost: <%= wal.text_field :net_cost %><br>
-  <% end %>
+    Coin Name: <%= f.text_field :name %><br>
+    Coin Price: <%= f.text_field :price %><br>
   <br><br>
-<%= f.submit "Create New Wallet" %>
+<%= f.submit "Create New Coin" %>
 <% end %>

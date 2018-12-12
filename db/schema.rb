@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_11_215005) do
+ActiveRecord::Schema.define(version: 2018_12_08_200513) do
 
   create_table "coins", force: :cascade do |t|
     t.string "name"
     t.integer "price"
-    t.integer "wallet_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_coins_on_user_id"
   end
 
   create_table "market_places", force: :cascade do |t|
@@ -25,6 +26,16 @@ ActiveRecord::Schema.define(version: 2018_10_11_215005) do
     t.string "wallet_id"
     t.decimal "coin_price"
     t.decimal "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "holding"
+    t.integer "market_value"
+    t.integer "net_cost"
+    t.integer "coin_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,13 +51,10 @@ ActiveRecord::Schema.define(version: 2018_10_11_215005) do
 
   create_table "wallets", force: :cascade do |t|
     t.string "name"
-    t.integer "holding"
-    t.integer "market_value"
-    t.integer "net_cost"
-    t.integer "coin_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
 end
