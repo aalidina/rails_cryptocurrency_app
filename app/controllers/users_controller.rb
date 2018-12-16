@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       session[:id] = @user.id
       redirect_to user_path(@user)
     else
-      render login_path
+      render template: 'users/new'
     end
   end
 

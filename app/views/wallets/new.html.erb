@@ -1,7 +1,13 @@
 
 <a href="/logout">Log Out</a>
 
-<br><br>
+<% if flash[:notice] -%>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end -%>
+<% if flash[:error] -%>
+  <p class="error"><%= flash[:error] %></p>
+<% end -%>
+
 
 <%= form_for @wallet do |f| %>
 Wallet Name: <%= f.text_field :name %>

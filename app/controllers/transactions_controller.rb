@@ -16,9 +16,9 @@ class TransactionsController < ApplicationController
     if logged_in?
       @transaction =  current_user.transactions.create(params_transactions)
       if @transaction.save
-        redirect_to transaction_path(@transaction)
+        redirect_to @transaction
       else
-        render "new"
+        redirect_to new_transactions_path
       end
     else
       redirect_to login_path

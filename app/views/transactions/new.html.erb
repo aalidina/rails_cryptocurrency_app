@@ -1,4 +1,6 @@
-
+<%= current_user.username %><br>
+<a href="/logout">Log Out</a>
+<br><br>
 <%= form_for @transaction do |f| %>
   <%= f.fields_for :coin, @coin do |coin| %><br>
     Coin Name: <%= coin.text_field :name %><br>

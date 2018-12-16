@@ -1,4 +1,7 @@
 class Coin < ApplicationRecord
+  validates :name, presence: true
+  validates :price, presence: true
+
   has_many :transactions
   has_many :wallets
   has_many :users, through: :transactions

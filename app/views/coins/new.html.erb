@@ -2,16 +2,3 @@
 <a href="/logout">Log Out</a>
 
 <br><br>
-
-<%= form_for @coin do |f| %>
-  <%= f.collection_check_boxes :id, current_user.wallets.all, :id, :name %>
-  <%= f.fields_for :wallets, @wallet do |wallet| %><br>
-    Holding: <%= wallet.text_field :holding %><br>
-    Martet Value: <%= wallet.text_field :market_value %><br>
-    Net Cost: <%= wallet.text_field :net_cost %><br>
-  <%end%>
-    Coin Name: <%= f.text_field :name %><br>
-    Coin Price: <%= f.text_field :price %><br>
-  <br><br>
-<%= f.submit "Create New Coin" %>
-<% end %>
