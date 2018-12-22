@@ -2,6 +2,7 @@
 <a href="/logout">Log Out</a>
 <br><br>
 <%= form_for @transaction do |f| %>
+  <%= f.hidden_field :user_id %>
   <%= f.fields_for :coin, @coin do |coin| %><br>
     Coin Name: <%= coin.text_field :name %><br>
     Coin Price: <%= coin.text_field :price %><br>

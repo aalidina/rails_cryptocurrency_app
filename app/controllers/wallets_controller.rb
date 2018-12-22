@@ -14,10 +14,11 @@ class WalletsController < ApplicationController
   def create
     @wallet =  current_user.wallets.create(wallet_params)
     if @wallet.save
-    redirect_to @wallet # redirect to wallets/:id
+      redirect_to user_wallet_path(@wallet.user_id, @wallet.id)
+      #proving user id and wallet id for nested route #user/:id/wallet/:id
     else
       flash[:notice] = "Wallet name is required"
-      redirect_to '/wallets/new'
+      redirect_to new_user_wallet_path(@wallet.user_id)
     end
   end
 
