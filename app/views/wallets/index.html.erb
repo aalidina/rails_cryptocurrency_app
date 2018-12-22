@@ -1,7 +1,6 @@
+<a href="/logout">Log Out</a><br>
 <% @wallets.each do |wallet| %>
-<% if current_user %>
-<%= link_to "Show #{wallet.name}", wallet_path(wallet) %>
-<% else %>
-  <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %><br>
-<% end %>
+  <% if current_user %>
+    <%= link_to "Show #{wallet.name}", wallet_path(wallet) %>
+  <% end %>
 <% end %>

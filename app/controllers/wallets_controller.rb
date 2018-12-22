@@ -1,11 +1,11 @@
 class WalletsController < ApplicationController
   def index
-    @wallets = Wallet.all
+    @wallets = current_user.wallets.all
   end
 
   def new
     if logged_in?
-      @wallet = current_user.wallets.new
+      @wallet = Wallet.new(user_id: params[:user_id])
     else
       redirect_to login_path
     end

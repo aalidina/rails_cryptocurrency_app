@@ -2,11 +2,17 @@ Rails.application.routes.draw do
   root 'sessions#welcome'
 
   resources :users,only: [:new, :show, :create]  do
-    resources :wallets, only: [:index, :show]
-    resources :transactions, only: [:index, :show]
+    resources :wallets, only: [:index, :new, :show]
+    #new route: users/1/wallets/new
+    #show route: users/1/wallet/1
+    #index users/1/wallets
+    resources :transactions, only: [:index, :new, :show]
+    #new users/1/transactions/new
+    #show route: users/1/transaction/1
+    #index users/1/transactions
   end
-  resources :wallets, only: [:index, :show, :new, :create, :edit, :update]
-  resources :transactions
+  resources :wallets, only: [:create, :edit, :update]
+  resources :transactions, only: [:create, :edit, :update]
   resources :coins , only: [:update]
 
   get "/signup", to: "users#new" #signup route displays users/new erb and post to

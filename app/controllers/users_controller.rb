@@ -13,12 +13,14 @@ class UsersController < ApplicationController
       session[:id] = @user.id
       redirect_to user_path(@user)
     else
-      render template: 'users/new'
+      redirect_to new_user_path
     end
   end
 
   def show
-
+    if logged_in? === false
+      redirect_to login_path
+    end
   end
 
 
@@ -30,6 +32,6 @@ class UsersController < ApplicationController
 
 #prevents hacker from entering different perms then then one in the app
   def user_params
-    params.require(:user).permit(:username, :id, :email, :password, :admin)
+    params.require(:user).permit(:username, :email, :password, :admin)
   end
 end
