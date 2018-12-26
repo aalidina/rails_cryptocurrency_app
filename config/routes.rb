@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/auth/github/callback' => 'sessions#create'
   root 'sessions#welcome'
 
   resources :users,only: [:new, :show, :create]  do
@@ -20,4 +21,5 @@ Rails.application.routes.draw do
   post "/login",   to: 'sessions#create'
   # the create method in sessions controller finds the user and #verifies the user using the authenticate method.
   get '/logout',  to: 'sessions#destroy'
+
 end
