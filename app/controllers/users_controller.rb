@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   #set_user method called before the action.this allows to not have to #repeat the code.
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  def index
+    @user = User.find_by(:id)
+  end
   def new
     @user = User.new
   end
@@ -14,6 +16,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       redirect_to new_user_path
+      #redirects to user/:id
     end
   end
 
